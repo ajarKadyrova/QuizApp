@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_history"
-        android:title="History" />
-
-    <item
-        android:id="@+id/nav_current_run"
+        android:id="@+id/nav_quiz"
         android:icon="@drawable/ic_test"
         android:title="Start test"/>
+
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_history"
+        android:title="History" />
 
 </menu>

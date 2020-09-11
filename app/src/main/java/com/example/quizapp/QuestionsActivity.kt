@@ -48,6 +48,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         progress_bar.progress = mCurrentPosition
+        progress_bar.max = mQuestionsList!!.size
         progress_textView.text = "$mCurrentPosition" + "/" + progress_bar.max
         question_textView.text = question!!.question
         image_ImageView.setImageResource(question.image)
