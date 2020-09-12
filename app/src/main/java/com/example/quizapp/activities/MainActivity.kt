@@ -1,15 +1,19 @@
-package com.example.quizapp
+package com.example.quizapp.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import com.example.quizapp.history.HistoryFragment
+import com.example.quizapp.fragments.QuizFragment
+import com.example.quizapp.R
+import com.example.quizapp.fragments.history.HistoryFragment
+import com.example.quizapp.viewModel.TestResultViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var quizFragment: QuizFragment
     lateinit var historyFragment: HistoryFragment
+    private lateinit var testResultViewModel: TestResultViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         navBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id. nav_quiz-> {
+                R.id.nav_quiz -> {
                     quizFragment = QuizFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
-                R.id. nav_history-> {
+                R.id.nav_history -> {
                     historyFragment =
                         HistoryFragment()
                     supportFragmentManager

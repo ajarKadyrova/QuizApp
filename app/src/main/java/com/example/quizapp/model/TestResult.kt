@@ -1,4 +1,4 @@
-package com.example.quizapp.history
+package com.example.quizapp.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,10 +12,10 @@ data class TestResult(
     val id: Int,
 
     @ColumnInfo(name = "username")
-    val username: String,
+    val username: String?,
 
     @ColumnInfo(name = "score")
-    val score: Int,
+    val score: String,
 
     @ColumnInfo(name = "date")
     val date: String

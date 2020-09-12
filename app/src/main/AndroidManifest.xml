@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/noActionBarTheme"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +20,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QuestionsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ResultActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activities.question.QuestionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ResultActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -1,11 +1,13 @@
-package com.example.quizapp.history
+package com.example.quizapp.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+
 import com.example.quizapp.data.AppDatabase
-import com.example.quizapp.data.TestResultRepository
+import com.example.quizapp.repository.TestResultRepository
+import com.example.quizapp.model.TestResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -16,7 +18,8 @@ class TestResultViewModel(application: Application) : AndroidViewModel(applicati
 
     init {
         val testResultDao = AppDatabase.getInstance(application).testResultDao()
-        repository = TestResultRepository(testResultDao)
+        repository =
+            TestResultRepository(testResultDao)
         getAllData = repository.getAllItems
     }
 

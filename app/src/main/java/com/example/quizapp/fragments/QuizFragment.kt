@@ -1,4 +1,4 @@
-package com.example.quizapp
+package com.example.quizapp.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.quizapp.activities.question.Constants
+import com.example.quizapp.R
+import com.example.quizapp.activities.question.QuestionsActivity
 import kotlinx.android.synthetic.main.fragment_quiz.*
 
 class QuizFragment : Fragment() {

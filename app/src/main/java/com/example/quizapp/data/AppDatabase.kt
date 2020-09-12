@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.quizapp.history.TestResult
+import com.example.quizapp.model.TestResult
 
-@Database(entities = [TestResult::class], version = 1, exportSchema = false )
+@Database(entities = [TestResult::class], version = 2, exportSchema = false )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun testResultDao() : TestResultDao
@@ -18,9 +18,12 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context) : AppDatabase {
             synchronized(this){
-                var instance = INSTANCE
-                if(instance == null){
-                    instance = Room.databaseBuilder(
+                var tempInstance = INSTANCE
+                if(tempInstance != null) {
+                    return tempInstance
+                }
+                synchronized(this){
+                    val instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
                         "test_results_database"
@@ -28,8 +31,8 @@ abstract class AppDatabase : RoomDatabase() {
                         .fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance
+                    return instance
                 }
-                return instance
             }
         }
     }

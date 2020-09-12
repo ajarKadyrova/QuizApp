@@ -1,15 +1,16 @@
-package com.example.quizapp
+package com.example.quizapp.activities.question
 
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.quizapp.R
+import com.example.quizapp.activities.ResultActivity
+import com.example.quizapp.model.Question
 import kotlinx.android.synthetic.main.activity_questions.*
 
 class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
@@ -68,7 +69,9 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         for (option in options) {
             option.setTextColor(Color.parseColor("#7A8089"))
             option.typeface = Typeface.DEFAULT
-            option.background = ContextCompat.getDrawable(this, R.drawable.default_option_border)
+            option.background = ContextCompat.getDrawable(this,
+                R.drawable.default_option_border
+            )
         }
     }
 
@@ -106,11 +109,15 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
                     val question = mQuestionsList?.get(mCurrentPosition - 1)
                     if(question!!.correctAnswer != mSelectedOptionPosition){
-                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border)
+                        answerView(mSelectedOptionPosition,
+                            R.drawable.wrong_option_border
+                        )
                     } else {
                         mCorrectAnswers++
                     }
-                    answerView(question.correctAnswer, R.drawable.correct_option_border)
+                    answerView(question.correctAnswer,
+                        R.drawable.correct_option_border
+                    )
                     if(mCurrentPosition == mQuestionsList!!.size){
                         submin_btn.text = "Finish"
                     } else {
@@ -152,7 +159,9 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         mSelectedOptionPosition = selectedOptionNum
         textView.setTextColor(Color.parseColor("#363A43"))
         textView.setTypeface(textView.typeface, Typeface.BOLD)
-        textView.background = ContextCompat.getDrawable(this, R.drawable.selected_option_border)
+        textView.background = ContextCompat.getDrawable(this,
+            R.drawable.selected_option_border
+        )
 
     }
 }

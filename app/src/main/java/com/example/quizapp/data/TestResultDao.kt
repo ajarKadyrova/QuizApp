@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
-import com.example.quizapp.history.TestResult
+import com.example.quizapp.model.TestResult
 
 @Dao
 interface TestResultDao {

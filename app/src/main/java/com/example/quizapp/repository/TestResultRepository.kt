@@ -1,7 +1,8 @@
-package com.example.quizapp.data
+package com.example.quizapp.repository
 
 import androidx.lifecycle.LiveData
-import com.example.quizapp.history.TestResult
+import com.example.quizapp.data.TestResultDao
+import com.example.quizapp.model.TestResult
 
 class TestResultRepository(private val testResultDao: TestResultDao) {
 
